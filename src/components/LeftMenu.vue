@@ -11,7 +11,7 @@
             <div :id="'collapse'+index" class="panel-collapse collapse">
                 <ul class="list-group">
                     <li :key="i" class="list-group-item" v-for="i in item.list">
-                        <a :href="i.link">{{i.name}}</a>
+                        <a @click="replaceComponent(item.type,i)">{{i.name}}</a>
                     </li>
                 </ul>
             </div>
@@ -20,25 +20,15 @@
 </template>
 
 <script>
+
     export default {
-        data: () => ({
-            leftData: [
-                {
-                    'title': '社区管理',
-                    'list': [
-                        {
-                            'name': '帖子审核',
-                            'link': '/admin/review.html'
-                        },
-                        {
-                            'name': '黑名单',
-                            'link': '/admin/baned.html'
-                        }
-                    ]
-                }
-            ]
-        }),
-        name: "LeftMenu"
+        name: "LeftMenu",
+        props: ['leftData'],
+        methods: {
+            replaceComponent: function (type, obj) {
+                this.$emit('replaceComponent', type, obj)
+            }
+        }
     }
 </script>
 

@@ -1,32 +1,28 @@
 <template>
     <div>
-        <img alt="" id="head1" src="../assets/header.jpg">
-        <img alt="" id="head2" src="../assets/header2.jpg">
-        <img alt="" id="head3" src="../assets/header3.jpg">
-        <img alt="" id="head4" src="../assets/header4.png">
-        <img alt="" id="head5" src="../assets/header5.png">
+        <img :src="aFullFace.afterHair" alt="">
+        <img :src="aFullFace.face" alt="">
+        <img :src="aFullFace.temples" alt="">
+        <img :src="aFullFace.bang" alt="">
+        <img :src="aFullFace.stayMAO" alt="">
     </div>
 </template>
 
 <script>
     export default {
-        name: "MainShow"
+        name: "MainShow",
+        props: ["aFullFace"]
     }
 </script>
 
 <style scoped>
     img {
         position: absolute;
-        top: 30px;
-        left: 5px;
-        width: 100px;
+        width: 500px;
     }
 
     div {
-        position: relative;
-        margin-left: 100px;
-        height: auto;
-
+        height: 667px;
     }
 
 
