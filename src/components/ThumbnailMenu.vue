@@ -9,11 +9,13 @@
                 </h4>
             </div>
             <div :id="'collapse'+index" class="panel-collapse collapse" :class="{'in':index===0}">
-                <div class="list-group">
-                    <a :key="i" class="list-group-item" :class="{'active':aFullFace[item.type].name ===i.name }" v-for="i in item.list"
-                       @click="replaceComponent(item.type,i)">
-                        {{i.name}}
-                    </a>
+                <div class="panel-body">
+                    <div class="col-xs-4" :key="i" v-for="i in item.list">
+                        <a @click="replaceComponent(item.type,i)" :class="{'select':aFullFace[item.type].data.name ===i.name }"
+                           href="#" class="thumbnail">
+                            <img :src="i.link" alt="...">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -22,7 +24,7 @@
 
 <script>
     export default {
-        name: "LeftMenu",
+        name: "ThumbnailShow",
         props: ['leftData','aFullFace'],
         methods: {
             replaceComponent: function (type, obj) {
@@ -33,8 +35,12 @@
 </script>
 
 <style scoped>
+.select {
+    border: 1px #337ab7 solid;
+}
 #accordion {
     height: 667px;
     overflow-y:auto;
 }
+
 </style>
